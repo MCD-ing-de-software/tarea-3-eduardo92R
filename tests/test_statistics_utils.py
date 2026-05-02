@@ -114,9 +114,20 @@ class TestStatisticsUtils(unittest.TestCase):
         Escenario esperado:
         - Crear una lista de números (ej: [10, 20, 30, 40])
         - Llamar a zscore para obtener los z-scores (resultado es un array de NumPy)
-        - Verificar que la media del resultado es aproximadamente 0 (usar self.assertAlmostEqual para un solo valor numérico - unittest es suficiente)
-        - Verificar que la desviación estándar del resultado es aproximadamente 1 (usar self.assertAlmostEqual para un solo valor numérico - unittest es suficiente)
+        - Verificar que la media del resultado es aproximadamente 0 (usar self.assertAlmostEqual para un solo 
+        valor numérico - unittest es suficiente)
+        - Verificar que la desviación estándar del resultado es aproximadamente 1 (usar self.assertAlmostEqual 
+        para un solo valor numérico - unittest es suficiente)
         """
+        utils = StatisticsUtils()
+        arr = [10, 20, 30, 40]
+        result = utils.zscore(arr)
+
+        #Verificar media; aproximadamente 0
+        self.assertAlmostEqual(np.mean(result), 0.0, places=7)
+
+        # Verificar desviación estándar; aproximadamente 1
+        self.assertAlmostEqual(np.std(result), 1.0, places=7)
 
     def test_zscore_raises_for_zero_std(self):
         """Test que verifica que el método zscore lanza un ValueError cuando
