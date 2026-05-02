@@ -180,8 +180,14 @@ class TestStatisticsUtils(unittest.TestCase):
         
         Escenario esperado:
         - Crear una lista con todos los valores iguales (ej: [3, 3, 3])
-        - Llamar a min_max_scale con esa secuencia y verificar que se lanza un ValueError indicando que todos los valores son iguales (usar self.assertRaises)
+        - Llamar a min_max_scale con esa secuencia y verificar que se lanza un ValueError indicando que todos 
+        los valores son iguales (usar self.assertRaises)
         """
+        utils = StatisticsUtils()
+        arr = [5,5,5]
+
+        with self.assertRaises(ValueError):
+            utils.min_max_scale(arr)
 
 
 if __name__ == "__main__":
