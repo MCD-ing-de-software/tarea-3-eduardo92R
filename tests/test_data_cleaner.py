@@ -14,7 +14,7 @@ def make_sample_df() -> pd.DataFrame:
     return pd.DataFrame(
         {
             "name": [" Alice ", "Bob", None, " Carol  "],
-            "age": [25, None, 35, 120],  # 120 is a likely outlier
+            "age": [25, 10, 35, 120],  # 120 is a likely outlier
             "city": ["SCL", "LPZ", "SCL", "LPZ"],
         }
     )
